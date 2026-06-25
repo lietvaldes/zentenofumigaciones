@@ -1,6 +1,4 @@
-const toggle = document.querySelector('.menu-toggle');
-const links = document.querySelector('.nav-links');
-if (toggle && links) {
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-}
+const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav-links');if(toggle){toggle.addEventListener('click',()=>nav.classList.toggle('open'));}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}})},{threshold:.14});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+function sendWhatsApp(e){e.preventDefault();const nombre=document.getElementById('nombre').value.trim();const servicio=document.getElementById('servicio').value;const mensaje=document.getElementById('mensaje').value.trim();const texto=`Hola, soy ${nombre}. Me interesa cotizar: ${servicio}. ${mensaje}`;window.open(`https://wa.me/529841198991?text=${encodeURIComponent(texto)}`,'_blank');}
